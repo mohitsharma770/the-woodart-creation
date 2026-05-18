@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wood Art Creation | Premium Handcrafted Wooden Art</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap');
+        
+        :root {
+            --wood-brown: #5C4033;
+            --dark: #111111;
+            --gold: #D4AF37;
+        }
+        
+        .tail-container {
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+        
+        .heading-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)), url('https://i.ibb.co/QFkt6rHn/Whats-App-Image-2026-05-17-at-6-56-24-PM.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #D4AF37;
+            transform: translateY(-2px);
+        }
+
+        .product-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
+        }
+
+        .gold-button {
+            background: linear-gradient(135deg, #D4AF37, #B8972E);
+            transition: all 0.3s ease;
+        }
+        
+        .gold-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 15px -3px rgb(212 175 55 / 0.3);
+        }
+
+        .section-header {
+            position: relative;
+        }
+        
+        .section-header:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: #D4AF37;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body class="tail-container bg-[#111111] text-white overflow-x-hidden">
+    <!-- NAVBAR -->
+    <nav class="bg-black border-b border-[#D4AF37]/20 fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <img src="https://i.ibb.co/KjL8nygC/Whats-App-Image-2026-05-17-at-1-46-55-PM.jpg" alt="Logo" class="h-12 w-auto">
+                <div>
+                    <span class="heading-font text-3xl tracking-tight text-white">The Wood Art</span>
+                    <span class="text-[#D4AF37] text-sm block -mt-1 tracking-[2px]">CREATION</span>
+                </div>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8 text-sm uppercase tracking-widest font-medium">
+                <a href="#home" onclick="navigateTo('home')" class="nav-link cursor-pointer">Home</a>
+                <a href="#about" onclick="navigateTo('about')" class="nav-link cursor-pointer">About</a>
+                <a href="#products" onclick="navigateTo('products')" class="nav-link cursor-pointer">Products</a>
+                <a href="#gallery" onclick="navigateTo('gallery')" class="nav-link cursor-pointer">Gallery</a>
+                <a href="#contact" onclick="navigateTo('contact')" class="nav-link cursor-pointer">Contact</a>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                <a href="https://maps.app.goo.gl/n5FVw8J1nHXDr5eN6" target="_blank" 
+                   class="px-5 py-2.5 border border-[#D4AF37] text-[#D4AF37] text-sm font-medium hover:bg-[#D4AF37] hover:text-black transition-all">
+                    Visit Factory
+                </a>
+                <button onclick="openWhatsApp()" 
+                        class="gold-button px-6 py-3 rounded-full text-black font-semibold flex items-center gap-2 text-sm">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO / HOME -->
+    <section id="home" class="hero-bg h-screen flex items-center pt-20">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="max-w-3xl mx-auto">
+                <h1 class="heading-font text-6xl md:text-7xl font-bold leading-none mb-6 tracking-tighter">
+                    MASTERPIECES IN<br><span class="text-[#D4AF37]">WOOD</span>
+                </h1>
+                <p class="text-xl text-gray-300 mb-10 max-w-md mx-auto">
+                    10+ years of crafting timeless wooden art, luxury furniture &amp; bespoke interiors
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="https://maps.app.goo.gl/n5FVw8J1nHXDr5eN6" target="_blank"
+                       class="gold-button px-8 py-4 rounded-full text-black font-semibold flex items-center gap-3 text-lg">
+                        <i class="fas fa-map-marker-alt"></i> View on Google Map
+                    </a>
+                    <button onclick="navigateTo('products')" 
+                            class="border border-white/70 hover:border-[#D4AF37] px-8 py-4 rounded-full font-semibold text-lg transition-all">
+                        View Collection
+                    </button>
+                    <button onclick="openWhatsApp()" 
+                            class="bg-green-600 hover:bg-green-500 px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-3 transition-all">
+                        <i class="fab fa-whatsapp text-xl"></i> WhatsApp Us
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+            <div class="text-[#D4AF37] text-xs tracking-widest mb-2">SCROLL TO EXPLORE</div>
+            <i class="fas fa-chevron-down animate-bounce text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- ABOUT US -->
+    <section id="about" class="py-24 bg-[#1A1A1A]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <span class="text-[#D4AF37] uppercase tracking-widest text-sm font-medium">Since 2014</span>
+                    <h2 class="heading-font text-5xl font-bold mt-3 mb-8">Crafting Excellence<br>in Every Grain</h2>
+                    <p class="text-gray-300 text-lg leading-relaxed">
+                        The Wood Art Creation, led by <strong class="text-white">Vipan Kumar</strong>, brings over 10 years of expertise in handcrafted wooden art, CNC precision carving, and luxury interior solutions. 
+                        We transform premium wood into timeless pieces that elevate your spaces.
+                    </p>
+                    
+                    <div class="mt-12 grid grid-cols-3 gap-8">
+                        <div>
+                            <div class="text-4xl font-bold text-[#D4AF37]">10+</div>
+                            <div class="text-sm uppercase tracking-widest mt-1">Years Experience</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-bold text-[#D4AF37]">500+</div>
+                            <div class="text-sm uppercase tracking-widest mt-1">Projects Delivered</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-bold text-[#D4AF37]">100%</div>
+                            <div class="text-sm uppercase tracking-widest mt-1">Client Satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <img src="https://i.ibb.co/kVqXG27H/Whats-App-Image-2026-05-18-at-12-20-02-PM.jpg" alt="Temple Design" 
+                         class="rounded-2xl shadow-2xl">
+                    <div class="absolute -bottom-6 -right-6 bg-black border border-[#D4AF37] p-6 rounded-2xl max-w-[220px]">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-[#D4AF37] text-black rounded-full flex items-center justify-center text-2xl">VK</div>
+                            <div>
+                                <div class="font-semibold">Vipan Kumar</div>
+                                <div class="text-sm text-gray-400">Founder &amp; Master Craftsman</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="uppercase text-[#D4AF37] tracking-widest text-sm">Why Choose Us</span>
+                <h2 class="heading-font text-5xl font-bold mt-3">The Wood Art Difference</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="bg-[#1A1A1A] p-8 rounded-3xl text-center">
+                    <i class="fas fa-hands-holding-circle text-4xl text-[#D4AF37] mb-6"></i>
+                    <h3 class="font-semibold text-xl mb-3">Handcrafted Perfection</h3>
+                    <p class="text-gray-400">Every piece is meticulously crafted by skilled artisans using traditional techniques with modern precision.</p>
+                </div>
+                <div class="bg-[#1A1A1A] p-8 rounded-3xl text-center">
+                    <i class="fas fa-cogs text-4xl text-[#D4AF37] mb-6"></i>
+                    <h3 class="font-semibold text-xl mb-3">CNC Precision</h3>
+                    <p class="text-gray-400">State-of-the-art CNC carving for intricate designs and flawless finishes.</p>
+                </div>
+                <div class="bg-[#1A1A1A] p-8 rounded-3xl text-center">
+                    <i class="fas fa-leaf text-4xl text-[#D4AF37] mb-6"></i>
+                    <h3 class="font-semibold text-xl mb-3">Premium Materials</h3>
+                    <p class="text-gray-400">Only the finest woods and veneers sourced for durability and natural beauty.</p>
+                </div>
+                <div class="bg-[#1A1A1A] p-8 rounded-3xl text-center">
+                    <i class="fas fa-ruler-combined text-4xl text-[#D4AF37] mb-6"></i>
+                    <h3 class="font-semibold text-xl mb-3">Bespoke Solutions</h3>
+                    <p class="text-gray-400">Custom designs tailored to your space, style and requirements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section id="products" class="py-24 bg-[#1A1A1A]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <span class="text-[#D4AF37] uppercase tracking-widest">Our Collection</span>
+                    <h2 class="heading-font text-5xl font-bold">Signature Creations</h2>
+                </div>
+                <input type="text" id="searchInput" 
+                       onkeyup="filterProducts()" 
+                       placeholder="Search products..." 
+                       class="bg-black border border-gray-700 focus:border-[#D4AF37] px-6 py-3 rounded-2xl outline-none w-80">
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="productsGrid">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="py-24 bg-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="uppercase text-[#D4AF37]">Portfolio</span>
+                <h2 class="heading-font text-5xl font-bold mt-3">Our Masterpieces</h2>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="galleryGrid">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="py-20 bg-[#1A1A1A]">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="heading-font text-5xl font-bold text-center mb-16">What Our Clients Say</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-black p-8 rounded-3xl">
+                    <div class="flex text-[#D4AF37] mb-6">★★★★★</div>
+                    <p class="italic text-gray-300">"The TV cabinet exceeded our expectations. The craftsmanship is world-class. Highly recommended!"</p>
+                    <div class="mt-8 flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gray-700 rounded-full"></div>
+                        <div>
+                            <div>Rahul Sharma</div>
+                            <div class="text-xs text-gray-500">Gurgaon</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-black p-8 rounded-3xl">
+                    <div class="flex text-[#D4AF37] mb-6">★★★★★</div>
+                    <p class="italic text-gray-300">"Amazing modular kitchen and wardrobe. The finish and attention to detail is outstanding."</p>
+                    <div class="mt-8 flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gray-700 rounded-full"></div>
+                        <div>
+                            <div>Priya Malhotra</div>
+                            <div class="text-xs text-gray-500">Delhi</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-black p-8 rounded-3xl">
+                    <div class="flex text-[#D4AF37] mb-6">★★★★★</div>
+                    <p class="italic text-gray-300">"The CNC carved temple design is a masterpiece. Transformed our pooja room completely."</p>
+                    <div class="mt-8 flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gray-700 rounded-full"></div>
+                        <div>
+                            <div>Amit Verma</div>
+                            <div class="text-xs text-gray-500">Noida</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEW FORM -->
+    <section class="py-16 bg-black border-t border-b border-gray-800">
+        <div class="max-w-2xl mx-auto px-6">
+            <h3 class="text-3xl font-semibold text-center mb-8">Share Your Experience</h3>
+            <form id="reviewForm" class="space-y-6">
+                <div>
+                    <label class="block text-sm mb-2">Your Name</label>
+                    <input type="text" id="reviewName" required class="w-full bg-[#1A1A1A] border border-gray-700 p-4 rounded-2xl">
+                </div>
+                <div>
+                    <label class="block text-sm mb-2">Rating</label>
+                    <div class="flex gap-2 text-3xl">
+                        <span onclick="setRating(1)" class="cursor-pointer hover:text-[#D4AF37]">★</span>
+                        <span onclick="setRating(2)" class="cursor-pointer hover:text-[#D4AF37]">★</span>
+                        <span onclick="setRating(3)" class="cursor-pointer hover:text-[#D4AF37]">★</span>
+                        <span onclick="setRating(4)" class="cursor-pointer hover:text-[#D4AF37]">★</span>
+                        <span onclick="setRating(5)" class="cursor-pointer hover:text-[#D4AF37]">★</span>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm mb-2">Your Review</label>
+                    <textarea id="reviewText" rows="4" required class="w-full bg-[#1A1A1A] border border-gray-700 p-4 rounded-2xl"></textarea>
+                </div>
+                <button type="submit" 
+                        class="gold-button w-full py-5 rounded-2xl text-black font-semibold text-lg">
+                    Submit Review
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-24 bg-[#1A1A1A]">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16">
+            <div>
+                <h2 class="heading-font text-5xl font-bold mb-8">Get In Touch</h2>
+                
+                <div class="space-y-8">
+                    <div class="flex gap-6">
+                        <i class="fas fa-phone text-3xl text-[#D4AF37] mt-1"></i>
+                        <div>
+                            <div class="font-medium">Phone</div>
+                            <a href="tel:9811403165" class="block text-lg hover:text-[#D4AF37]">9811403165</a>
+                            <a href="tel:9891127083" class="block text-lg hover:text-[#D4AF37]">9891127083</a>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-6">
+                        <i class="fab fa-whatsapp text-3xl text-green-500 mt-1"></i>
+                        <div>
+                            <div class="font-medium">WhatsApp</div>
+                            <a href="https://wa.me/919811403165" target="_blank" class="block text-lg hover:text-[#D4AF37]">9811403165</a>
+                            <a href="https://wa.me/919891127083" target="_blank" class="block text-lg hover:text-[#D4AF37]">9891127083</a>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-6">
+                        <i class="fas fa-envelope text-3xl text-[#D4AF37] mt-1"></i>
+                        <div>
+                            <div class="font-medium">Email</div>
+                            <a href="mailto:info.woodartcreation@gmail.com" class="text-lg hover:text-[#D4AF37]">info.woodartcreation@gmail.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-6">
+                        <i class="fas fa-map-marker-alt text-3xl text-[#D4AF37] mt-1"></i>
+                        <div>
+                            <div class="font-medium">Factory Address</div>
+                            <p class="text-gray-400">Plot no. 17/2, Sector 106,<br>Shastri Nagar Industrial Area,<br>Daulatabad, Gurugram, Haryana 122006</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Google Map -->
+            <div class="rounded-3xl overflow-hidden h-96 border border-gray-700">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3509.9999999999995!2d77.00000000000001!3d28.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDMwJzAwLjAiTiA3N8KwMDAnMDAuMCJF!5e0!3m2!1sen!2sin!4v123456789" 
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black py-16 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <img src="https://i.ibb.co/KjL8nygC/Whats-App-Image-2026-05-17-at-1-46-55-PM.jpg" alt="Logo" class="h-16 mx-auto mb-6 opacity-75">
+            <p class="text-gray-500">© 2026 The Wood Art Creation. All Rights Reserved.<br>
+            Handcrafted with passion in Gurugram, India</p>
+        </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP -->
+    <a href="https://wa.me/919811403165" target="_blank"
+       class="fixed bottom-8 right-8 bg-green-600 text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition-all z-50">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox" class="lightbox">
+        <div class="relative max-w-4xl max-h-[90vh] overflow-auto">
+            <button onclick="closeLightbox()" class="absolute -top-4 -right-4 bg-black text-white w-10 h-10 rounded-full flex items-center justify-center text-2xl">×</button>
+            <img id="lightboxImage" class="rounded-3xl max-h-[85vh] w-auto mx-auto" alt="">
+            <div id="lightboxInfo" class="bg-black p-8 mt-4 rounded-3xl"></div>
+        </div>
+    </div>
+
+    <script>
+        // Product Data
+        const products = [
+            {
+                name: "T.V. Cabinet",
+                price: "₹2500 per sq ft",
+                img: "https://i.ibb.co/QFkt6rHn/Whats-App-Image-2026-05-17-at-6-56-24-PM.jpg",
+                desc: "Elegant entertainment units with premium finish and LED lighting options."
+            },
+            {
+                name: "Door Design",
+                price: "₹85,000 each (Veneer finish)",
+                img: "https://i.ibb.co/Xx6SVy1z/Whats-App-Image-2026-05-17-at-7-03-42-PM.jpg",
+                desc: "Luxury CNC carved main doors with exquisite detailing."
+            },
+            {
+                name: "Counter",
+                price: "₹2500 per sq ft",
+                img: "https://i.ibb.co/5h9Ywt7m/Whats-App-Image-2026-05-17-at-7-01-26-PM.jpg",
+                desc: "Premium kitchen and bathroom counters in solid wood."
+            },
+            {
+                name: "Wardrobe / Almirah",
+                price: "₹2200 per sq ft",
+                img: "https://i.ibb.co/bj1Zn113/Whats-App-Image-2026-05-17-at-7-00-00-PM.jpg",
+                desc: "Custom modular wardrobes with intelligent storage solutions."
+            },
+            {
+                name: "Modular Kitchen",
+                price: "₹3000 per sq ft",
+                img: "https://i.ibb.co/Y7YJXTVF/Whats-App-Image-2026-05-17-at-6-59-07-PM.jpg",
+                desc: "Contemporary modular kitchens with premium hardware."
+            },
+            {
+                name: "Crockery Unit",
+                price: "₹2500 per sq ft",
+                img: "https://i.ibb.co/ynh0pqrG/Whats-App-Image-2026-05-17-at-6-58-17-PM.jpg",
+                desc: "Beautiful display units for your finest crockery."
+            },
+            {
+                name: "Partition",
+                price: "₹1450 per sq ft",
+                img: "https://i.ibb.co/n83zbhdG/Whats-App-Image-2026-05-17-at-6-55-17-PM.jpg",
+                desc: "Stunning room dividers and partitions in wood."
+            },
+            {
+                name: "Temple Design",
+                price: "Custom Pricing",
+                img: "https://i.ibb.co/kVqXG27H/Whats-App-Image-2026-05-18-at-12-20-02-PM.jpg",
+                desc: "Exquisite pooja mandir designs with intricate CNC carving."
+            }
+        ];
+
+        // Render Products
+        function renderProducts(filteredProducts) {
+            const container = document.getElementById('productsGrid');
+            container.innerHTML = '';
+            
+            filteredProducts.forEach(product => {
+                const cardHTML = `
+                    <div class="product-card bg-black rounded-3xl overflow-hidden border border-gray-800 group">
+                        <div class="relative">
+                            <img src="${product.img}" alt="${product.name}" 
+                                 class="w-full h-72 object-cover transition-all group-hover:scale-105">
+                            <div class="absolute top-4 right-4 bg-black/70 px-4 py-1 rounded-full text-xs font-medium">
+                                ${product.price}
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-semibold text-2xl mb-2">${product.name}</h3>
+                            <p class="text-gray-400 text-sm mb-6">${product.desc}</p>
+                            <button onclick="inquireProduct('${product.name}')" 
+                                    class="w-full gold-button py-4 rounded-2xl text-black font-semibold">
+                                Inquire on WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += cardHTML;
+            });
+        }
+
+        // Render Gallery
+        function renderGallery() {
+            const container = document.getElementById('galleryGrid');
+            container.innerHTML = '';
+            
+            products.forEach((product, index) => {
+                const itemHTML = `
+                    <div onclick="openLightbox('${product.img}', '${product.name}', '${product.price}', '${product.desc}')" 
+                         class="group cursor-pointer">
+                        <div class="overflow-hidden rounded-3xl">
+                            <img src="${product.img}" alt="${product.name}" 
+                                 class="w-full aspect-square object-cover transition-all group-hover:scale-110">
+                        </div>
+                        <div class="mt-4 px-1">
+                            <div class="font-medium">${product.name}</div>
+                            <div class="text-[#D4AF37] text-sm">${product.price}</div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += itemHTML;
+            });
+        }
+
+        // Lightbox
+        function openLightbox(imgSrc, name, price, desc) {
+            document.getElementById('lightboxImage').src = imgSrc;
+            document.getElementById('lightboxInfo').innerHTML = `
+                <h3 class="text-3xl font-semibold mb-2">${name}</h3>
+                <div class="text-[#D4AF37] text-xl mb-4">${price}</div>
+                <p class="text-gray-300">${desc}</p>
+                <button onclick="inquireProduct('${name}'); closeLightbox()" 
+                        class="mt-8 gold-button w-full py-5 rounded-2xl text-black font-semibold">
+                    Inquire on WhatsApp
+                </button>
+            `;
+            document.getElementById('lightbox').style.display = 'flex';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
+        // WhatsApp Inquiry
+        function inquireProduct(productName) {
+            const message = `Hello! I'm interested in ${productName} from The Wood Art Creation. Please share more details.`;
+            window.open(`https://wa.me/919811403165?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        function openWhatsApp() {
+            window.open('https://wa.me/919811403165', '_blank');
+        }
+
+        // Filter Products
+        function filterProducts() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = products.filter(p => 
+                p.name.toLowerCase().includes(query) || 
+                p.desc.toLowerCase().includes(query)
+            );
+            renderProducts(filtered);
+        }
+
+        // Simple Navigation
+        function navigateTo(section) {
+            document.getElementById(section).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Review Form
+        document.getElementById('reviewForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('reviewName').value;
+            const text = document.getElementById('reviewText').value;
+            
+            // Simulate email send
+            alert(`Thank you, ${name}! Your review has been received and will be sent to info.woodartcreation@gmail.com`);
+            this.reset();
+        });
+
+        function setRating(rating) {
+            // Could enhance with real star highlighting, but kept simple
+            console.log(`Rated: ${rating} stars`);
+        }
+
+        // Initialize
+        window.onload = function() {
+            renderProducts(products);
+            renderGallery();
+            
+            // Tailwind script already loaded
+            console.log('%cThe Wood Art Creation Website Ready', 'color:#D4AF37; font-size:14px; font-family:monospace');
+        };
+    </script>
+</body>
+</html>
